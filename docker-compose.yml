@@ -40,6 +40,7 @@ services:
     restart: always
     environment:
       GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: '/etc/grafana/provisioning/dashboards/speedtest.json'
 
 volumes:
   grafana_data:
