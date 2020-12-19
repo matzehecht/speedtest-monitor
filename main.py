@@ -8,19 +8,19 @@ import logging
 from influxdb import InfluxDBClient
 
 DB = {
-  "HOST": os.environ.get('DB_HOST'),
-  "PORT": int(os.environ.get('DB_PORT')),
-  "USER": os.environ.get('DB_USER'),
-  "PASSWORD": os.environ.get('DB_PASSWORD'),
-  "DATABASE": os.environ.get('DB_DATABASE')
+  'HOST': os.environ.get('DB_HOST'),
+  'PORT': int(os.environ.get('DB_PORT')),
+  'USER': os.environ.get('DB_USER'),
+  'PASSWORD': os.environ.get('DB_PASSWORD'),
+  'DATABASE': os.environ.get('DB_DATABASE')
 }
 
 SPEEDTEST = {
-  "INTERVAL": int(os.environ.get('INTERVAL')),
-  "FAIL_INTERVAL": int(os.environ.get('FAIL_INTERVAL'))
+  'INTERVAL': int(os.environ.get('INTERVAL')),
+  'FAIL_INTERVAL': int(os.environ.get('FAIL_INTERVAL'))
 }
 
-influx = InfluxDBClient(DB["HOST"], DB["PORT"], DB["USER"], DB["PASSWORD"], DB["DATABASE"])
+influx = InfluxDBClient(DB['HOST'], DB['PORT'], DB['USER'], DB['PASSWORD'], DB['DATABASE'])
 
 def do_nothing(*args, **kwargs):
   pass
@@ -35,8 +35,6 @@ class ExtendedSpeedtestResults(SpeedtestResults):
     self.upload_elapsed = 0
   
   def json(self, pretty=False):
-    """Return data in JSON format"""
-
     kwargs = {}
     if pretty:
       kwargs.update({
@@ -49,7 +47,6 @@ class ExtendedSpeedtestResults(SpeedtestResults):
     data = [
       {
         'measurement': 'ping',
-        'time': self.timestamp,
         'fields': {
           # Currently not supported
           # 'jitter': self.jitter,
@@ -58,7 +55,6 @@ class ExtendedSpeedtestResults(SpeedtestResults):
       },
       {
         'measurement': 'download',
-        'time': self.timestamp,
         'fields': {
           # Byte to Megabit
           'bandwidth': self.download / 125000,
@@ -68,7 +64,6 @@ class ExtendedSpeedtestResults(SpeedtestResults):
       },
       {
         'measurement': 'upload',
-        'time': self.timestamp,
         'fields': {
           # Byte to Megabit
           'bandwidth': self.upload / 125000,
@@ -79,12 +74,20 @@ class ExtendedSpeedtestResults(SpeedtestResults):
       # Currently not supported
       # {
       #   'measurement': 'packetLoss',
-      #   'time': self.timestamp,
       #   'fields': {
       #     'packetLoss': self.pktLoss
       #   }
       # }
     ]
+    
+    for data_part in data:
+      data_part['tags'] = {
+        'server_id': self.server['id'],
+        'server_name': self.server['sponsor'],
+        'server_location': self.server['name'] + ', ' + self.server['country']
+      }
+      data_part['time'] = self.timestamp
+    
     if influx.write_points(data) != True:
       raise
 
@@ -129,11 +132,11 @@ def main():
     try:
       run()
       print('Data succesfully stored')
-      time.sleep(SPEEDTEST["INTERVAL"])
+      time.sleep(SPEEDTEST['INTERVAL'])
     except Exception as e:
       print('ERROR during speedtest')
       logging.error(traceback.format_exc())
-      time.sleep(SPEEDTEST["FAIL_INTERVAL"])
+      time.sleep(SPEEDTEST['FAIL_INTERVAL'])
 
 if __name__ == '__main__':
   main()

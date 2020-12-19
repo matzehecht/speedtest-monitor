@@ -73,9 +73,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -86,15 +84,11 @@
         {
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "linear"
-              ],
+              "params": ["linear"],
               "type": "fill"
             }
           ],
@@ -106,9 +100,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -166,9 +158,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -179,15 +169,11 @@
         {
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "linear"
-              ],
+              "params": ["linear"],
               "type": "fill"
             }
           ],
@@ -199,9 +185,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -254,9 +238,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -267,15 +249,11 @@
         {
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "linear"
-              ],
+              "params": ["linear"],
               "type": "fill"
             }
           ],
@@ -287,9 +265,7 @@
           "select": [
             [
               {
-                "params": [
-                  "latency"
-                ],
+                "params": ["latency"],
                 "type": "field"
               },
               {
@@ -347,9 +323,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -360,15 +334,11 @@
         {
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "linear"
-              ],
+              "params": ["linear"],
               "type": "fill"
             }
           ],
@@ -380,9 +350,7 @@
           "select": [
             [
               {
-                "params": [
-                  "elapsed"
-                ],
+                "params": ["elapsed"],
                 "type": "field"
               },
               {
@@ -432,9 +400,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "sum"
-          ],
+          "calcs": ["sum"],
           "fields": "",
           "values": false
         },
@@ -445,15 +411,11 @@
         {
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "previous"
-              ],
+              "params": ["previous"],
               "type": "fill"
             }
           ],
@@ -465,9 +427,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bytes"
-                ],
+                "params": ["bytes"],
                 "type": "field"
               },
               {
@@ -548,15 +508,11 @@
           "alias": "Download",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -570,9 +526,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -587,15 +541,11 @@
           "alias": "Upload",
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "none"
-              ],
+              "params": ["none"],
               "type": "fill"
             }
           ],
@@ -609,9 +559,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -697,9 +645,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "sum"
-          ],
+          "calcs": ["sum"],
           "fields": "",
           "values": false
         },
@@ -710,15 +656,11 @@
         {
           "groupBy": [
             {
-              "params": [
-                "$__interval"
-              ],
+              "params": ["$__interval"],
               "type": "time"
             },
             {
-              "params": [
-                "previous"
-              ],
+              "params": ["previous"],
               "type": "fill"
             }
           ],
@@ -730,9 +672,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bytes"
-                ],
+                "params": ["bytes"],
                 "type": "field"
               },
               {
@@ -959,21 +899,15 @@
         {
           "groupBy": [
             {
-              "params": [
-                "server_name"
-              ],
+              "params": ["server_name"],
               "type": "tag"
             },
             {
-              "params": [
-                "server_location"
-              ],
+              "params": ["server_location"],
               "type": "tag"
             },
             {
-              "params": [
-                "server_id"
-              ],
+              "params": ["server_id"],
               "type": "tag"
             }
           ],
@@ -987,9 +921,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -997,17 +929,13 @@
                 "type": "mean"
               },
               {
-                "params": [
-                  "Download Avg"
-                ],
+                "params": ["Download Avg"],
                 "type": "alias"
               }
             ],
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -1015,9 +943,7 @@
                 "type": "count"
               },
               {
-                "params": [
-                  "Test Count"
-                ],
+                "params": ["Test Count"],
                 "type": "alias"
               }
             ]
@@ -1027,9 +953,7 @@
         {
           "groupBy": [
             {
-              "params": [
-                "server_id"
-              ],
+              "params": ["server_id"],
               "type": "tag"
             }
           ],
@@ -1043,9 +967,7 @@
           "select": [
             [
               {
-                "params": [
-                  "bandwidth"
-                ],
+                "params": ["bandwidth"],
                 "type": "field"
               },
               {
@@ -1053,9 +975,7 @@
                 "type": "mean"
               },
               {
-                "params": [
-                  "Upload Avg"
-                ],
+                "params": ["Upload Avg"],
                 "type": "alias"
               }
             ]
@@ -1065,9 +985,7 @@
         {
           "groupBy": [
             {
-              "params": [
-                "server_id"
-              ],
+              "params": ["server_id"],
               "type": "tag"
             }
           ],
@@ -1081,9 +999,7 @@
           "select": [
             [
               {
-                "params": [
-                  "latency"
-                ],
+                "params": ["latency"],
                 "type": "field"
               },
               {
@@ -1091,9 +1007,7 @@
                 "type": "mean"
               },
               {
-                "params": [
-                  "Ping"
-                ],
+                "params": ["Ping"],
                 "type": "alias"
               }
             ]
@@ -1116,7 +1030,10 @@
           "options": {
             "excludeByName": {
               "Time": true,
-              "server_id": true
+              "server_id": true,
+              "Time 1": true,
+              "Time 2": true,
+              "Time 3": true
             },
             "indexByName": {
               "Download Avg": 3,
