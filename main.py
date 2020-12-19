@@ -56,8 +56,8 @@ class ExtendedSpeedtestResults(SpeedtestResults):
       {
         'measurement': 'download',
         'fields': {
-          # Byte to Megabit
-          'bandwidth': self.download / 125000,
+          # bit to Byte to Megabit
+          'bandwidth': (self.download / 8) / 125000,
           'bytes': self.bytes_received,
           'elapsed': self.download_elapsed
         }
@@ -65,8 +65,8 @@ class ExtendedSpeedtestResults(SpeedtestResults):
       {
         'measurement': 'upload',
         'fields': {
-          # Byte to Megabit
-          'bandwidth': self.upload / 125000,
+          # bit to Byte to Megabit
+          'bandwidth': (self.upload / 8) / 125000,
           'bytes': self.bytes_sent,
           'elapsed': self.upload_elapsed
         }
