@@ -1,0 +1,18 @@
+# config file version
+apiVersion: 1
+
+# list of datasources that should be deleted from the database
+deleteDatasources:
+  - name: Influx
+
+datasources:
+  - name: InfluxDB
+    type: influxdb
+    access: proxy
+    database: speedtest
+    user: speedie
+    url: http://influxdb:8086
+    secureJsonData:
+      password: fastPassword
+    jsonData:
+      httpMode: GET

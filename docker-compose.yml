@@ -1,0 +1,48 @@
+version: '3.9'
+services:
+  speedtest:
+    build: .
+    depends_on:
+      - influxdb
+    environment:
+      DB_HOST: influxdb
+      DB_PORT: 8086
+      DB_USER: speedie
+      DB_PASSWORD: fastPassword
+      DB_DATABASE: speedtest
+      # Both intervals below are in seconds
+      INTERVAL: 3600
+      FAIL_INTERVAL: 300
+    networks:
+      - backend
+    restart: always
+  influxdb:
+    image: influxdb
+    environment:
+      INFLUXDB_DB: speedtest
+      INFLUXDB_USER: speedie
+      INFLUXDB_USER_PASSWORD: fastPassword
+    networks:
+      - backend
+      - frontend
+    restart: always
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - influxdb
+    networks:
+      - frontend
+    ports:
+      - 80:3000
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning/:/etc/grafana/provisioning/
+    restart: always
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+
+volumes:
+  grafana_data:
+networks:
+  backend:
+  frontend:
