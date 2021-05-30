@@ -112,7 +112,7 @@
           "tags": []
         }
       ],
-      "timeFrom": "2d",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Download Speed",
       "type": "stat"
@@ -197,7 +197,7 @@
           "tags": []
         }
       ],
-      "timeFrom": "2d",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Upload Speed",
       "type": "stat"
@@ -277,7 +277,7 @@
           "tags": []
         }
       ],
-      "timeFrom": "2d",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Response Time",
       "type": "stat"
@@ -362,7 +362,7 @@
           "tags": []
         }
       ],
-      "timeFrom": "2d",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Test Time",
       "type": "stat"
@@ -439,7 +439,7 @@
           "tags": []
         }
       ],
-      "timeFrom": "2d",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Download Size Total",
       "type": "stat"
@@ -684,7 +684,7 @@
           "tags": []
         }
       ],
-      "timeFrom": "2d",
+      "timeFrom": null,
       "timeShift": null,
       "title": "Upload Size Total",
       "type": "stat"
