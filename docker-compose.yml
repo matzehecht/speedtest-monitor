@@ -11,7 +11,7 @@ services:
       DB_PASSWORD: fastPassword
       DB_DATABASE: speedtest
       # Both intervals below are in seconds
-      INTERVAL: 3600
+      INTERVAL: 1200
       FAIL_INTERVAL: 300
     networks:
       - backend
