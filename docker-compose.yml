@@ -17,7 +17,7 @@ services:
       - backend
     restart: always
   influxdb:
-    image: influxdb
+    image: influxdb:1.8
     environment:
       INFLUXDB_DB: speedtest
       INFLUXDB_USER: speedie
@@ -29,7 +29,7 @@ services:
       - frontend
     restart: always
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:8.1.4
     depends_on:
       - influxdb
     networks:
